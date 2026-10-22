@@ -1034,6 +1034,72 @@
       font-size: 17px;
     }
 
+    /* Phone row: number on the left, Zalo + copy actions on the right */
+    .contact-phone {
+      flex-wrap: wrap;
+    }
+
+    .contact-phone .contact-info {
+      flex: 1 1 90px;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex: 0 0 auto;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+    }
+
+    .contact-action {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 0 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.025);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 750;
+      line-height: 1;
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
+      transition: border-color 180ms ease, background 180ms ease;
+    }
+
+    .contact-action:hover {
+      border-color: #526777;
+      background: var(--surface-hover);
+    }
+
+    .contact-action-zalo {
+      border-color: rgba(184, 243, 107, 0.35);
+      color: var(--accent);
+    }
+
+    .contact-action-copy {
+      width: 40px;
+      padding: 0;
+    }
+
+    .contact-action .icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    .contact-sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      white-space: nowrap;
+    }
+
     /* ========== 9. FOOTER ========== */
     .site-footer {
       padding: 25px 0;
@@ -1999,8 +2065,8 @@
       <div class="container">
         <div class="contact-panel">
           <div class="contact-copy">
-            <p class="eyebrow" data-i18n="contactEyebrow">Kết nối</p>
-            <h2 data-i18n="contactTitle">Cùng trao đổi về <span class="accent">dữ liệu</span></h2>
+            <p class="eyebrow" data-i18n="contactEyebrow">Hợp tác</p>
+            <h2 data-i18n="contactTitle">Sẵn sàng đồng hành trong lĩnh vực <span class="accent">dữ liệu</span></h2>
             <p data-i18n="contactDesc">
               Tôi sẵn sàng kết nối để trao đổi về cơ hội thực tập, công việc
               trong lĩnh vực dữ liệu hoặc các dự án học tập và cộng tác phù hợp.
@@ -2031,25 +2097,24 @@
               <span class="contact-arrow">↗</span>
             </a>
 
-            <a class="contact-item" href="https://zalo.me/0788855716"
-              target="_blank" rel="noopener noreferrer">
-              <span class="contact-icon"><svg class="icon"><use href="#i-phone"></use></svg></span>
-              <span class="contact-info">
-                <strong>Zalo</strong>
-                <span>0788 855 716</span>
-              </span>
-              <span class="contact-arrow">↗</span>
-            </a>
-
-            <button class="contact-item" id="copyPhone" type="button"
-              style="width:100%;text-align:left;color:inherit;cursor:pointer;font-family:inherit">
+            <div class="contact-item contact-phone">
               <span class="contact-icon"><svg class="icon"><use href="#i-phone"></use></svg></span>
               <span class="contact-info">
                 <strong data-i18n="phoneLabel">Điện thoại</strong>
-                <span>0788855716 · <span data-i18n="copyHint">Bấm để sao chép số</span></span>
+                <span>0788 855 716</span>
               </span>
-              <span class="contact-arrow" aria-hidden="true">⧉</span>
-            </button>
+              <span class="contact-actions">
+                <a class="contact-action contact-action-zalo" href="https://zalo.me/0788855716"
+                  target="_blank" rel="noopener noreferrer">Zalo</a>
+                <button class="contact-action contact-action-copy" id="copyPhone" type="button">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <rect x="9" y="9" width="12" height="12" rx="2" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>
+                    <path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                  <span class="contact-sr-only" data-i18n="copyHint">Bấm để sao chép số</span>
+                </button>
+              </span>
+            </div>
 
             <a class="contact-item" href="https://github.com/QuyzzMa"
               target="_blank" rel="noopener noreferrer">
@@ -2200,8 +2265,8 @@
         step4Title: "Trình bày kết quả",
         step4Desc: "Tài liệu hóa quy trình và truyền đạt thông tin rõ ràng, có ngữ cảnh.",
 
-        contactEyebrow: "Kết nối",
-        contactTitle: "Cùng trao đổi về <span class='accent'>dữ liệu</span>",
+        contactEyebrow: "Hợp tác",
+        contactTitle: "Sẵn sàng đồng hành trong lĩnh vực <span class='accent'>dữ liệu</span>",
         contactDesc: "Tôi sẵn sàng kết nối để trao đổi về cơ hội thực tập, công việc trong lĩnh vực dữ liệu hoặc các dự án học tập và cộng tác phù hợp.",
         contactNote: "Chọn một kênh bên cạnh để mở hồ sơ hoặc liên hệ trực tiếp.",
         facebookLabel: "Kết nối trên Facebook",
@@ -2321,8 +2386,8 @@
         step4Title: "Communicate",
         step4Desc: "Document the process and communicate findings clearly with context.",
 
-        contactEyebrow: "Connect",
-        contactTitle: "Let's talk <span class='accent'>data</span>",
+        contactEyebrow: "Collaborate",
+        contactTitle: "Ready to contribute to your <span class='accent'>data</span> team",
         contactDesc: "I am open to connecting about internships, data-related opportunities, or suitable learning and collaboration projects.",
         contactNote: "Choose a channel to open my profile or contact me directly.",
         facebookLabel: "Connect on Facebook",
